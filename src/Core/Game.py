@@ -10,7 +10,10 @@ class Game:
         dogs = [Dog(f"Dog{iteration}", iteration) for iteration in range(1, 11)]
 
         player_1 = Player("Player1", numpy.random.choice(dogs, 5, p=probabilities, replace=False))
-        player_2 = Player("Player2", numpy.random.choice(dogs, 5, p=probabilities, replace=False))
+        player_2 = Player("Player2", [dog for dog in dogs if dog not in player_1.deck])
+
+        player_1.print_deck()
+        player_2.print_deck()
 
         self.players = [player_1, player_2]
 
