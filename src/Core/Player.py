@@ -2,23 +2,9 @@ import random
 
 
 class Player:
-    def __init__(self, name, deck_size, dogs):
+    def __init__(self, name, dogs):
         self.name = name
-        self._deck = []
-
-        picked_dogs = []
-
-        for iteration in range(deck_size):
-            chance = random.random()
-
-            for dog_name, dog_attributes in dogs.items():
-                if dog_name in picked_dogs:
-                    continue
-
-                if dog_attributes["probability"] < chance:
-                    picked_dogs.append(dog_name)
-                    self.deck.append(dog_attributes["instance"])
-                    break
+        self._deck = [dog for dog in dogs]
 
     @property
     def deck(self):
