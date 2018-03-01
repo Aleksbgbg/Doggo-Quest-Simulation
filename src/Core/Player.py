@@ -30,3 +30,18 @@ class Player:
 
     def print_deck(self):
         print(", \n".join(str(item) for item in self.deck))
+
+    def _pick_fighter(self):
+        return random.choice(self.deck)
+
+    def fight(self, other_player):
+        fighter_1 = self._pick_fighter()
+        fighter_2 = other_player._pick_fighter()
+
+        def swap_cards(player_1, player_2):
+            player_2.deck.append(player_1.deck.pop())
+
+        if fighter_1.strength > fighter_2.strength:
+            swap_cards(other_player, self)
+        else:
+            swap_cards(self, other_player)
