@@ -1,13 +1,8 @@
-import random
-
 from .Dog import Dog
 from .Player import Player
 
 class Game:
     def __init__(self):
-        # Predictable random state
-        # random.seed(0)
-
         def get_probability_generator():
             index = 0
             probabilities = [0.3, 0.22, 0.18, 0.13, 0.07, 0.05, 0.04, 0.005, 0.003, 0.002]
@@ -48,7 +43,6 @@ class Game:
         is_win_state = any(len(player.deck) == 0 for player in self.players)
 
         if is_win_state:
-            # print(f"\n{[player for player in self.players if len(player.deck) == 0][0].name} wins!")
             if len(self.players[0].deck) == 0:
                 return 1
 

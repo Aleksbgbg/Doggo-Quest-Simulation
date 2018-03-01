@@ -1,17 +1,10 @@
 import random
-import calendar
-import time
 
 
 class Player:
     def __init__(self, name, deck_size, dogs):
         self.name = name
         self._deck = []
-
-        # Seed random with current time to eradicate previous seeds
-        #if self.seeds == 0:
-         #   random.seed(calendar.timegm(time.gmtime()))
-          #  self.seeds += 1
 
         picked_dogs = []
 
