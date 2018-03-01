@@ -32,8 +32,8 @@ class Game:
             for dog in [Dog(f"Dog{iteration}", iteration) for iteration in range(1, 11)]
         }
 
-        player_1 = Player(5, dogs)
-        player_2 = Player(5, dogs)
+        player_1 = Player("Player1", 5, dogs)
+        player_2 = Player("Player2", 5, dogs)
 
         self.players = [player_1, player_2]
 
@@ -45,7 +45,13 @@ class Game:
         self.update_model()
         self.compose_frame()
 
-        return all(len(player.deck) > 0 for player in self.players)
+        is_win_state = any(len(player.deck) == 0 for player in self.players)
+
+        if is_win_state:
+            print(f"\n{[player for player in self.players if len(player.deck) == 0][0].name} wins!")
+            return False
+
+        return True
 
     def update_model(self):
         """
@@ -58,6 +64,4 @@ class Game:
         """
         Print current frame to output.
         """
-        for index, player in enumerate(self.players):
-            print(f"\nPlayer #{index}:")
-            player.print_deck()
+        pass

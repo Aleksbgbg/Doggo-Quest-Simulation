@@ -4,7 +4,8 @@ import time
 
 
 class Player:
-    def __init__(self, deck_size, dogs):
+    def __init__(self, name, deck_size, dogs):
+        self.name = name
         self._deck = []
 
         # Seed random with current time to eradicate previous seeds
@@ -39,7 +40,9 @@ class Player:
         fighter_2 = other_player._pick_fighter()
 
         def swap_cards(player_1, player_2):
-            player_2.deck.append(player_1.deck.pop())
+            swap_dog = player_1.deck.pop()
+            print(f"{player_1.name} acquires {player_2.name}'s {swap_dog.name}")
+            player_2.deck.append(swap_dog)
 
         if fighter_1.strength > fighter_2.strength:
             swap_cards(other_player, self)
