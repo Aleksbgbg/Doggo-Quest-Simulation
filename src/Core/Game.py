@@ -1,19 +1,19 @@
 import numpy
+# import random
 
 from .Dog import Dog
 from .Player import Player
 
 class Game:
     def __init__(self):
-        probabilities = [0.3, 0.22, 0.18, 0.13, 0.07, 0.05, 0.04, 0.005, 0.003, 0.002]
-
         dogs = [Dog(f"Dog{iteration}", iteration) for iteration in range(1, 11)]
 
-        player_1 = Player("Player1", numpy.random.choice(dogs, 5, p=probabilities, replace=False))
-        player_2 = Player("Player2", [dog for dog in dogs if dog not in player_1.deck])
+        player_1 = Player("Player1", numpy.random.choice(dogs, 5, replace=False))
+        player_2 = Player("Player2", numpy.random.choice(dogs, 5, replace=False))
 
         player_1.print_deck()
         player_2.print_deck()
+        print()
 
         self.players = [player_1, player_2]
 

@@ -22,7 +22,7 @@ class Player:
 
         def swap_cards(player_1, player_2):
             swap_dog = player_1.deck.pop()
-            # print(f"{player_1.name} acquires {player_2.name}'s {swap_dog.name}")
+            #print(f"{player_1.name} acquires {player_2.name}'s {swap_dog.name}")
             player_2.deck.append(swap_dog)
 
         if fighter_1.strength > fighter_2.strength:
