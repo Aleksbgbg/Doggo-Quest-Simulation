@@ -37,10 +37,6 @@ class Game:
 
         self.players = [player_1, player_2]
 
-        for index, player in enumerate(self.players):
-            print(f"\nPlayer #{index}:")
-            player.print_deck()
-
     def run(self):
         """
         Run one frame of the game, and return a boolean value indicating whether the game is still running.
@@ -49,16 +45,19 @@ class Game:
         self.update_model()
         self.compose_frame()
 
-        return False
+        return all(len(player.deck) > 0 for player in self.players)
 
     def update_model(self):
         """
         Play one round of the game (and update state).
         """
-        pass
+        fighting_player = self.players[0]
+        fighting_player.fight(self.players[1])
 
     def compose_frame(self):
         """
         Print current frame to output.
         """
-        pass
+        for index, player in enumerate(self.players):
+            print(f"\nPlayer #{index}:")
+            player.print_deck()
