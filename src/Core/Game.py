@@ -6,7 +6,7 @@ from .Player import Player
 class Game:
     def __init__(self):
         # Predictable random state
-        random.seed(0)
+        # random.seed(0)
 
         def get_probability_generator():
             index = 0
@@ -48,10 +48,13 @@ class Game:
         is_win_state = any(len(player.deck) == 0 for player in self.players)
 
         if is_win_state:
-            print(f"\n{[player for player in self.players if len(player.deck) == 0][0].name} wins!")
-            return False
+            # print(f"\n{[player for player in self.players if len(player.deck) == 0][0].name} wins!")
+            if len(self.players[0].deck) == 0:
+                return 1
 
-        return True
+            return 0
+
+        return -1
 
     def update_model(self):
         """
