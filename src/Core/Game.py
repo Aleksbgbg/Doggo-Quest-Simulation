@@ -3,6 +3,10 @@ class Game:
         pass
 
     def run(self):
+        """
+        Run one frame of the game, and return a boolean value indicating whether the game is still running.
+        """
+
         self.update_model()
         self.compose_frame()
 
