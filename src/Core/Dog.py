@@ -4,7 +4,7 @@ class Dog:
         self._strength = strength
 
     def __str__(self):
-        return f"Name: {self.name}\nStrength: {self.strength}"
+        return f"{self.name} ({self.strength})"
 
     @property
     def name(self):
