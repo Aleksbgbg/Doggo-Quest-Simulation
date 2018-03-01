@@ -53,7 +53,7 @@ class Game:
 
     def update_model(self):
         """
-        Update game data.
+        Play one round of the game (and update state).
         """
         pass
 
