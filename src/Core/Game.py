@@ -1,7 +1,7 @@
 import numpy
 
-from .Dog import Dog
-from .Player import Player
+from src.Core.Entities.Dog import Dog
+from src.Core.Entities.Player import Player
 
 
 class Game:
